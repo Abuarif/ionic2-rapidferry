@@ -1,3 +1,4 @@
+import { Api } from './../providers/api';
 import { InformationPage } from './../pages/information-page/information-page';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -37,6 +38,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
   providers: [
     StatusBar,
     SplashScreen,
+    Api,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
