@@ -57,5 +57,31 @@ export class Api {
         });
     });
   }
+
+  public get_routes(location) {
+    return new Promise((resolve, reject) => {
+
+      this.http.get(this.serverPath + '/api/routes.json?location=' + location)
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+
+
+  public get_bustrips(route) {
+    return new Promise((resolve, reject) => {
+
+      this.http.get(this.serverPath + '/api/bustrips.json?route=' + route)
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
 }
 

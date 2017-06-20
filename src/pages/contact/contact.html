@@ -3,33 +3,47 @@
     <ion-title>RapidPenang Bus</ion-title>
   </ion-navbar>
  <ion-toolbar>
-    <ion-segment  color="primary">
-      <ion-segment-button value="island">
+    <ion-segment  color="primary" [(ngModel)]="location" >
+      <ion-segment-button value="2" (ionSelect)="setLocation($event)">
         Island
       </ion-segment-button>
-      <ion-segment-button value="mainland">
+      <ion-segment-button value="1" (ionSelect)="setLocation($event)">
         Mainland
       </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-item>
-    <ion-label>Bus Route</ion-label>
-    <ion-select>
-      <ion-option value="203" >203</ion-option>
-      <ion-option value="303" >303</ion-option>
-      <ion-option value="403" >403</ion-option>
-      
+<ion-content padding [ngSwitch]="location">
+
+  <ion-item *ngSwitchCase="'1'">
+    <ion-label>Choose your bus route number</ion-label>
+    <ion-select [(ngModel)]="route_mainland" (ionChange)="getBusTrips($event)">
+      <ion-option *ngFor="let busroute of busroutes_mainland" value="{{busroute.Route.name}}" >{{busroute.Route.name}} </ion-option>  
     </ion-select>
   </ion-item>
-  <ion-list>
-    <ion-item *ngFor="let  timetable of timetables">
+  <ion-list *ngSwitchCase="'1'">
+    <ion-item *ngFor="let  bustrip of bustrips_mainland">
       <ion-icon name='bus' item-start color="secondary"></ion-icon>
       Arrival Time
       <ion-note item-end>
-        {{ timetable.bus }}
+        {{ bustrip.RouteTimetable.departure_a }}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-item *ngSwitchCase="'2'">
+    <ion-label>Choose your bus route number</ion-label>
+    <ion-select [(ngModel)]="route_island" (ionChange)="getBusTrips($event)">
+      <ion-option *ngFor="let busroute of busroutes_island" value="{{busroute.Route.name}}" >{{busroute.Route.name}} </ion-option>  
+    </ion-select>
+  </ion-item>
+  <ion-list *ngSwitchCase="'2'">
+    <ion-item *ngFor="let  bustrip of bustrips_island">
+      <ion-icon name='bus' item-start color="secondary"></ion-icon>
+      Arrival Time
+      <ion-note item-end>
+        {{ bustrip.RouteTimetable.departure_a }}
       </ion-note>
     </ion-item>
   </ion-list>

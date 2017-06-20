@@ -1,5 +1,7 @@
+import { Api } from './../../providers/api';
+import { Promotions } from './../../models/promotions';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, LoadingController } from 'ionic-angular';
 
 
 @IonicPage()
@@ -8,26 +10,30 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
   templateUrl: 'information-page.html',
 })
 export class InformationPage {
-  slides : any = [];
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-     this.slides = [
-    {
-      title: "Welcome to the Docs!",
-      description: "The <b>Ionic Component Documentation</b> showcases a number of useful components that are included out of the box with Ionic.",
-      image: "assets/img/ica-slidebox-img-1.png",
-    },
-    {
-      title: "What is Ionic?",
-      description: "<b>Ionic Framework</b> is an open source SDK that enables developers to build high quality mobile apps with web technologies like HTML, CSS, and JavaScript.",
-      image: "assets/img/ica-slidebox-img-2.png",
-    },
-    {
-      title: "What is Ionic Cloud?",
-      description: "The <b>Ionic Cloud</b> is a cloud platform for managing and scaling Ionic apps with integrated services like push notifications, native builds, user auth, and live updating.",
-      image: "assets/img/ica-slidebox-img-3.png",
-    }
-  ];
+  slides: Promotions[] = new Array();
+
+  constructor(public _loadingController: LoadingController, private api: Api) { }
+
+  ionViewWillEnter() {
+    this.getPromotions();
   }
 
+  private getPromotions() {
+    let loading = this._loadingController.create({
+      content: "Please wait...",
+      duration: 3000
+    });
 
+    loading.present();
+
+    this.api.get_promotions()
+      .then((result) => {
+        loading.dismiss();
+        this.slides = <Promotions[]>result;
+        console.log(this.slides);
+      }, (err) => {
+        loading.dismiss();
+        alert(err);
+      });
+  }
 }
