@@ -1,0 +1,19 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      KTM ETS
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-list>
+    <ion-item *ngFor="let  timetable of timetables">
+      <ion-icon name='train' item-start color="secondary"></ion-icon>
+      Arrival Time
+      <ion-note item-end>
+        {{ timetable.ets }}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

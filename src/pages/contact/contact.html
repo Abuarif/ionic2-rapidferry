@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-navbar >
+    <ion-title>RapidPenang Bus</ion-title>
+  </ion-navbar>
+ <ion-toolbar>
+    <ion-segment  color="primary">
+      <ion-segment-button value="island">
+        Island
+      </ion-segment-button>
+      <ion-segment-button value="mainland">
+        Mainland
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+  <ion-item>
+    <ion-label>Bus Route</ion-label>
+    <ion-select>
+      <ion-option value="203" >203</ion-option>
+      <ion-option value="303" >303</ion-option>
+      <ion-option value="403" >403</ion-option>
+      
+    </ion-select>
+  </ion-item>
+  <ion-list>
+    <ion-item *ngFor="let  timetable of timetables">
+      <ion-icon name='bus' item-start color="secondary"></ion-icon>
+      Arrival Time
+      <ion-note item-end>
+        {{ timetable.bus }}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>

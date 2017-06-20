@@ -1,0 +1,109 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>RapidFerry Information</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content class="tutorial-page">
+
+  <ion-slides pager>
+    <ion-slide *ngFor="let slide of slides">
+      <ion-toolbar>
+        <ion-buttons end>
+          <button ion-button color="primary">Skip</button>
+        </ion-buttons>
+      </ion-toolbar>
+      <img [src]="" class="slide-image" />
+      <h2 class="slide-title" [innerHTML]="slide.title"></h2>
+      <p [innerHTML]="slide.description"></p>
+    </ion-slide>
+  </ion-slides>
+
+  <ion-list no-border>
+    <ion-item-divider color="light" text-center>
+      <h2>
+        Pedestrian
+      </h2>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-icon name='person' item-start></ion-icon>
+      Adult
+      <ion-note item-end color="default"> RM 1.20 </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='person' item-start></ion-icon>
+      Children
+      <ion-note item-end color="default"> RM 1.20 </ion-note>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list no-border>
+    <ion-item-divider color="light" text-center>
+      <h2>
+        Monthly Tickets (2 Months validity)
+      </h2>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-icon name='person' item-start></ion-icon>
+      Adult
+      <ion-note item-end color="default"> RM 30.00 </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='person' item-start></ion-icon>
+      Students (below 21 years old)
+      <ion-note item-end color="default"> RM 6.00 </ion-note>
+    </ion-item>
+
+  </ion-list>
+
+  <ion-list no-border>
+    <ion-item-divider color="light" text-center>
+      <h2>
+        Vehicles
+      </h2>
+    </ion-item-divider>
+
+    <ion-item>
+      <ion-icon name='bicycle' item-start></ion-icon>
+      Bicycle
+      <ion-note item-end color="default"> RM 1.40 </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='bicycle' item-start></ion-icon>
+      Motorcycle
+      <ion-note item-end color="default"> RM 2.00 </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='bicycle' item-start></ion-icon>
+      Trishaw
+      <ion-note item-end color="default"> RM 3.30 </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='car' item-start></ion-icon>
+      Motorcar (including station wagon, four-wheel drive, three-wheel commercial vehicle, motorcycle with side car)
+      <ion-note item-end color="default"> RM 7.70 </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='car' item-start></ion-icon>
+      Lorry (2 axles with 4 wheels)
+      <ion-note item-end color="default"> RM 13.20 </ion-note>
+    </ion-item>
+
+    <ion-item>
+      <ion-icon name='car' item-start></ion-icon>
+      Lorry (2 axles with 6 wheels)
+      <ion-note item-end color="default"> RM 27.50 </ion-note>
+    </ion-item>
+
+  </ion-list>
+
+</ion-content>
