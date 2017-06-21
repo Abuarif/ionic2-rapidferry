@@ -1,3 +1,4 @@
+import { General } from './../pages/general/general';
 import { Api } from './../providers/api';
 import { InformationPage } from './../pages/information-page/information-page';
 import { NgModule, ErrorHandler } from '@angular/core';
@@ -21,6 +22,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     HomePage,
     InformationPage,
+    General,
     TabsPage
   ],
   imports: [
@@ -35,6 +37,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     ContactPage,
     HomePage,
     InformationPage,
+    General,
     TabsPage
   ],
   providers: [

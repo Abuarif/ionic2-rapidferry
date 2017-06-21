@@ -16,13 +16,13 @@ export class AboutPage {
         ets: '10.20 am',
       }, 
       {
-        ets: '2.10 am',
+        ets: '2.10 pm',
       }, 
       {
-        ets: '4.30 am',
+        ets: '4.30 pm',
       }, 
       {
-        ets: '6.10 am',
+        ets: '6.10 pm',
       }, 
     ];
   }

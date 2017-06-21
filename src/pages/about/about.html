@@ -8,9 +8,13 @@
 
 <ion-content padding>
   <ion-list>
+    <ion-item-divider>
+      <ion-note item-end>
+        Departure
+      </ion-note>
+    </ion-item-divider>
     <ion-item *ngFor="let  timetable of timetables">
       <ion-icon name='train' item-start color="secondary"></ion-icon>
-      Arrival Time
       <ion-note item-end>
         {{ timetable.ets }}
       </ion-note>

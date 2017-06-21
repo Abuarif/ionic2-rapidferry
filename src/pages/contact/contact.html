@@ -1,9 +1,11 @@
 <ion-header>
-  <ion-navbar >
-    <ion-title>RapidPenang Bus</ion-title>
+  <ion-navbar>
+    <ion-title>RapidPenang</ion-title>
   </ion-navbar>
- <ion-toolbar>
-    <ion-segment  color="primary" [(ngModel)]="location" >
+
+  <ion-toolbar>
+
+    <ion-segment color="primary" [(ngModel)]="location">
       <ion-segment-button value="2" (ionSelect)="setLocation($event)">
         Island
       </ion-segment-button>
@@ -11,6 +13,7 @@
         Mainland
       </ion-segment-button>
     </ion-segment>
+
   </ion-toolbar>
 </ion-header>
 
@@ -19,31 +22,53 @@
   <ion-item *ngSwitchCase="'1'">
     <ion-label>Choose your bus route number</ion-label>
     <ion-select [(ngModel)]="route_mainland" (ionChange)="getBusTrips($event)">
-      <ion-option *ngFor="let busroute of busroutes_mainland" value="{{busroute.Route.name}}" >{{busroute.Route.name}} </ion-option>  
+      <ion-option *ngFor="let busroute of busroutes_mainland" value="{{busroute.Route.name}}">{{busroute.Route.name}} </ion-option>
     </ion-select>
   </ion-item>
-  <ion-list *ngSwitchCase="'1'">
-    <ion-item *ngFor="let  bustrip of bustrips_mainland">
-      <ion-icon name='bus' item-start color="secondary"></ion-icon>
-      Arrival Time
-      <ion-note item-end>
-        {{ bustrip.RouteTimetable.departure_a }}
-      </ion-note>
-    </ion-item>
-  </ion-list>
 
   <ion-item *ngSwitchCase="'2'">
     <ion-label>Choose your bus route number</ion-label>
     <ion-select [(ngModel)]="route_island" (ionChange)="getBusTrips($event)">
-      <ion-option *ngFor="let busroute of busroutes_island" value="{{busroute.Route.name}}" >{{busroute.Route.name}} </ion-option>  
+      <ion-option *ngFor="let busroute of busroutes_island" value="{{busroute.Route.name}}">{{busroute.Route.name}} </ion-option>
     </ion-select>
   </ion-item>
-  <ion-list *ngSwitchCase="'2'">
+
+  <ion-list inset *ngSwitchCase="'1'">
+    <ion-item-divider>
+      <ion-note>
+        <p><b>Departure</b></p>
+      </ion-note>
+      <ion-note item-end>
+        <p><b>Arrival</b></p>
+      </ion-note>
+    </ion-item-divider>
+    <ion-item *ngFor="let  bustrip of bustrips_mainland">
+      <ion-icon name='bus' item-start color="secondary"></ion-icon>
+      <ion-note>
+        <p><b>{{ bustrip.RouteTimetable.departure_a }}</b></p>
+      </ion-note>
+      <ion-note item-end>
+        <p><b> {{ bustrip.RouteTimetable.boarding_b }}</b></p>
+      </ion-note>
+    </ion-item>
+  </ion-list>
+
+  <ion-list inset *ngSwitchCase="'2'">
+    <ion-item-divider>
+      <ion-note>
+        Departure
+      </ion-note>
+      <ion-note item-end>
+        Arrival
+      </ion-note>
+    </ion-item-divider>
     <ion-item *ngFor="let  bustrip of bustrips_island">
       <ion-icon name='bus' item-start color="secondary"></ion-icon>
-      Arrival Time
+      <ion-note>
+        <p><b>{{ bustrip.RouteTimetable.departure_a }}</b></p>
+      </ion-note>
       <ion-note item-end>
-        {{ bustrip.RouteTimetable.departure_a }}
+        <p><b>{{ bustrip.RouteTimetable.boarding_b }}</b></p>
       </ion-note>
     </ion-item>
   </ion-list>
