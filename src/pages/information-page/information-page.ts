@@ -16,27 +16,27 @@ export class InformationPage {
   constructor(public _loadingController: LoadingController, private api: Api, private alertCtrl: AlertController, private platform: Platform, private navCtrl: NavController) { }
 
   ionViewWillEnter() {
-    this.getPromotions();
+    // this.getPromotions();
   }
 
-  private getPromotions() {
-    let loading = this._loadingController.create({
-      content: "Please wait...",
-      duration: 3000
-    });
+  // private getPromotions() {
+  //   let loading = this._loadingController.create({
+  //     content: "Please wait...",
+  //     duration: 3000
+  //   });
 
-    loading.present();
+  //   loading.present();
 
-    this.api.get_promotions()
-      .then((result) => {
-        loading.dismiss();
-        this.slides = <Promotions[]>result;
-        console.log(this.slides);
-      }, (err) => {
-        loading.dismiss();
-        this.presentConfirm();
-      });
-  }
+  //   this.api.get_promotions()
+  //     .then((result) => {
+  //       loading.dismiss();
+  //       this.slides = <Promotions[]>result;
+  //       console.log(this.slides);
+  //     }, (err) => {
+  //       loading.dismiss();
+  //       this.presentConfirm();
+  //     });
+  // }
 
   presentConfirm() {
     let alert = this.alertCtrl.create({

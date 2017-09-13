@@ -1,0 +1,73 @@
+<ion-header>
+
+  <ion-navbar color="primary">
+    <ion-title>Trip Details</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-list>
+    <ion-item-divider color="light" text-center>
+      <h2>
+        <font>{{location}}</font>
+      </h2>
+      <p>{{ service_date | date:'dd, MMMM yyyy'}}</p>
+    </ion-item-divider>
+    <ion-item *ngIf="!isFull">
+      <ion-icon name='boat' item-start color="{{ color_isFull }}"></ion-icon>
+      Ferry is vacant</ion-item>
+    <ion-item *ngIf="isFull">
+      <ion-icon name='boat' item-start color="{{ color_isFull }}"></ion-icon>
+      Ferry is full</ion-item>
+    <ion-item>
+      <ion-icon name='boat' item-start color="{{ color_isFull }}"></ion-icon>
+      Arrival Time
+      <ion-note item-end *ngIf="location_id == '1'">
+        {{ timetable.FerryRoute.boarding_a | date:'hh:mm a'}}
+      </ion-note>
+      <ion-note item-end *ngIf="location_id == '2'">
+        {{ timetable.FerryRoute.boarding_b | date:'hh:mm a'}}
+      </ion-note>
+    </ion-item>
+    <ion-item *ngIf="isOnTime">
+      <ion-icon name='timer' item-start color="{{ color_isOnTime }}"></ion-icon>
+      Departure Time
+      <ion-note item-end *ngIf="location_id == '1'">
+        {{ timetable.FerryRoute.departure_a | date:'hh:mm a'}}
+      </ion-note>
+      <ion-note item-end *ngIf="location_id == '2'">
+        {{ timetable.FerryRoute.departure_b | date:'hh:mm a'}}
+      </ion-note>
+    </ion-item>
+    <ion-item *ngIf="!isOnTime">
+      <ion-icon name='speedometer' item-start color="{{ color_isOnTime }}"></ion-icon>
+      Delayed Departure
+      <ion-note item-end>
+        {{ time_depart | date:'hh:mm a'}}
+      </ion-note>
+    </ion-item>
+  </ion-list>
+  <ion-list>
+    <p text-center>
+      List of available bus at adjacent terminal
+    </p>
+    <ion-item>
+      <ion-note>Destination</ion-note>
+      <ion-note item-end>Bus Number</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-note>Place 1</ion-note>
+      <ion-note item-end>XXX</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-note>Place 2</ion-note>
+      <ion-note item-end>XXX</ion-note>
+    </ion-item>
+    <ion-item>
+      <ion-note>Place 3</ion-note>
+      <ion-note item-end>XXX</ion-note>
+    </ion-item>
+  </ion-list>
+</ion-content>
