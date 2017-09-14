@@ -22,7 +22,7 @@
       <ion-icon name='boat' item-start color="{{ color_isFull }}"></ion-icon>
       Ferry is full</ion-item>
     <ion-item>
-      <ion-icon name='boat' item-start color="{{ color_isFull }}"></ion-icon>
+      <ion-icon name='timer' item-start color=secondary></ion-icon>
       Arrival Time
       <ion-note item-end *ngIf="location_id == '1'">
         {{ timetable.FerryRoute.boarding_a | date:'hh:mm a'}}

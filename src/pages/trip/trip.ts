@@ -43,6 +43,8 @@ export class Trip {
     this.isOnTime = this.timetable.FerryRoute.isOnTime;
     this.color_isFull = this.timetable.FerryRoute.color_isFull;
     this.color_isOnTime = this.timetable.FerryRoute.color_isOnTime;
+    this.time_depart = this.timetable.FerryRoute.time_depart;
+
     if (this.location_id == '1') {
       this.arrival = this.timetable.FerryRoute.boarding_a;
     } else {

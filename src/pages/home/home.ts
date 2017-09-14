@@ -34,16 +34,14 @@ export class HomePage {
     private datePipe: DatePipe
   ) { }
 
-  ionViewWillEnter() {
-    if (this.dataApi.get('location')) {
-      this.location = this.dataApi.get('location');
-    }
-
-    if (this.dataApi.get('service_date')) {
-      this.service_date = this.dataApi.get('service_date');
-    }
+  ngOnInit() {
 
     this.getFerryTimetables();
+    setInterval(
+      () => {
+        this.getFerryTimetables();
+      }, 1000 * 60 // refresh to check new data for every 1 minute.
+    )
   }
 
   private getFerryTimetables() {
@@ -57,7 +55,7 @@ export class HomePage {
         // loading.dismiss();
         this.timetables = result;
         // this.timetables = <Ferrytrips[]>result;
-        console.log(this.timetables);
+        // console.log(this.timetables);
         this.parseTrip();
         // console.log(this.timetables);
       }, (err) => {
@@ -76,7 +74,7 @@ export class HomePage {
       this.api.get_ferryroutes(this.location)
         .then((result) => {
           this.timetables = <Ferrytrips[]>result;
-          console.log(this.timetables);
+          // console.log(this.timetables);
           this.parseTrip();
         }, (err) => {
         });
@@ -146,6 +144,10 @@ export class HomePage {
       element.FerryRoute.boarding_b = service_date + 'T' + element.FerryRoute.boarding_b + ':00.000+08:00'
       element.FerryRoute.departure_a = service_date + 'T' + element.FerryRoute.departure_a + ':00.000+08:00'
       element.FerryRoute.departure_b = service_date + 'T' + element.FerryRoute.departure_b + ':00.000+08:00'
+
+      if (element.FerryRoute.time_depart != '') {
+        element.FerryRoute.time_depart = new Date(element.FerryRoute.time_depart).toUTCString();
+      }
     });
   }
 
