@@ -34,6 +34,10 @@ export class HomePage {
     private datePipe: DatePipe
   ) { }
 
+  ionViewWillEnter(){
+    this.getFerryTimetables();
+  }
+
   ngOnInit() {
 
     this.getFerryTimetables();

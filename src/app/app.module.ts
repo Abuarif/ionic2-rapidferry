@@ -1,3 +1,4 @@
+import { PricingPage } from './../pages/pricing/pricing';
 import { Trip } from './../pages/trip/trip';
 import { DataApi } from './../providers/data-api';
 import { DatePipe } from '@angular/common';
@@ -25,6 +26,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     InformationPage,
     General,
     Trip,
+    PricingPage,
     TabsPage
   ],
   imports: [
@@ -39,6 +41,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     HomePage,
     InformationPage,
     Trip,
+    PricingPage,
     General,
     TabsPage
   ],

@@ -37,10 +37,23 @@ export class Api {
   }
 
   public get_bustrips(location) {
-    console.log('get_routes');
+    console.log('get_bustrips');
     return new Promise((resolve, reject) => {
 
-      this.http.get(this.serverPath + '/api/get_bustrips.json?location=' + location)
+      this.http.get(this.serverPath + '/api/bustrips.json?location=' + location)
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
+  public get_etstrips(location) {
+    console.log('get_etstrips');
+    return new Promise((resolve, reject) => {
+
+      this.http.get(this.serverPath + '/api/etstrips.json?location=' + location)
         .subscribe(res => {
           resolve(res.json());
         }, (err) => {

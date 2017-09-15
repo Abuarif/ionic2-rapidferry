@@ -49,25 +49,53 @@
       </ion-note>
     </ion-item>
   </ion-list>
-  <ion-list>
-    <p text-center>
-      List of available bus at adjacent terminal
-    </p>
-    <ion-item>
-      <ion-note>Destination</ion-note>
-      <ion-note item-end>Bus Number</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-note>Place 1</ion-note>
-      <ion-note item-end>XXX</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-note>Place 2</ion-note>
-      <ion-note item-end>XXX</ion-note>
-    </ion-item>
-    <ion-item>
-      <ion-note>Place 3</ion-note>
-      <ion-note item-end>XXX</ion-note>
-    </ion-item>
-  </ion-list>
+  <p text-center>
+    List of available service(s) at the adjacent terminal
+  </p>
+  <div padding>
+    <ion-segment [(ngModel)]="service">
+      <ion-segment-button value="bus">
+        Bus
+      </ion-segment-button>
+      <ion-segment-button value="ets" *ngIf="location == 'PRTU'">
+        ETS
+      </ion-segment-button>
+      <ion-segment-button value="ktm" *ngIf="location == 'PRTU'">
+        KTM
+      </ion-segment-button>
+    </ion-segment>
+  </div>
+  <div [ngSwitch]="service">
+    <ion-list *ngSwitchCase="'bus'">
+      <ion-item>
+        <ion-note item-start>Destination</ion-note>
+        <ion-note item-end>Departure Time</ion-note>
+      </ion-item>
+      <ion-item *ngFor="let timetable of timetables">
+        <h2> {{ timetable.Route.destination }} </h2>
+        <ion-note item-start> {{ timetable.Route.name }} </ion-note>
+        <ion-note item-end>
+          {{ timetable.RouteTimetable.departure_a | date:'hh:mm a' }}
+        </ion-note>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'ets'">
+      <ion-item>
+        <ion-note item-start>Destination</ion-note>
+        <ion-note item-end>Departure Time</ion-note>
+      </ion-item>
+      <ion-item *ngFor="let timetable of etsTrips">
+        <h2> {{ timetable.Route.destination }} </h2>
+        <ion-note item-start> {{ timetable.Route.name }} </ion-note>
+        <ion-note item-end>
+           {{ timetable.RouteTimetable.departure_a | date:'hh:mm a' }} 
+        </ion-note>
+      </ion-item>
+    </ion-list>
+    <ion-list *ngSwitchCase="'ktm'">
+      <ion-item>
+        <ion-note>Coming soon...</ion-note>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
