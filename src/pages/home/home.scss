@@ -1,6 +1,13 @@
 page-home {
-    margin: 0px 0px;
-    height: 100%;
-    background-image: url('assets/img/home320.jpg');  
-    background-size: full;
+    .ferry-header {
+        background-image: url('/assets/img/ferry-bg.jpg');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 60% 20%; 
+    }
+    
+    .time {
+        font-size: 20px;
+        font-weight: bolder;
+    }
 }

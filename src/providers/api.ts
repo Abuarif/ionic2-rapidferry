@@ -112,6 +112,19 @@ export class Api {
     });
   }
 
+  public get_terminal(location) {
+    console.log('get_ferryroutes');
+    return new Promise((resolve, reject) => {
+
+      this.http.get(this.serverPath + '/api/get_ferryroutes.json?device=dashboard&location=' + location)
+        .subscribe(res => {
+          resolve(res.json());
+        }, (err) => {
+          reject(err);
+        });
+    });
+  }
+
   public get_history(location) {
     console.log('get_history');
     return new Promise((resolve, reject) => {

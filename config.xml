@@ -3,12 +3,9 @@
     <name>RapidFerry</name>
     <description>A RapidFerry information app.</description>
     <author email="suhaimi.maidin@prasarana.com.my" href="http://myrapid.com.my/">SDU - ICT Team</author>
-    <content original-src="index.html" src="http://192.168.0.107:8102" />
+    <content src="index.html" />
     <access origin="*" />
-    <allow-navigation href="http://ionic.local/*" />
-    <allow-navigation href="http://192.168.0.12:8100" />
-    <allow-navigation href="http://192.168.2.1:8100" />
-    <allow-navigation href="http://10.3.8.76:8100" />
+    <allow-navigation href="http://ionic.local/*" />∑
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
@@ -80,6 +77,8 @@
     </platform>
     <icon src="resources/android/icon/drawable-xhdpi-icon.png" />
     <allow-navigation href="http://192.168.0.107:8102" />
+    <allow-navigation href="http://192.168.0.107:8101" />
+    <allow-navigation href="http://192.168.43.169:8101" />
     <engine name="android" spec="^6.2.3" />
     <engine name="ios" spec="^4.4.0" />
     <plugin name="cordova-plugin-console" spec="1.0.5" />

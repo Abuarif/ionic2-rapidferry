@@ -1,29 +1,40 @@
-<!-- <ion-header>
-  <ion-navbar>
-    <ion-title>RapidFerry</ion-title>
-  </ion-navbar>
-</ion-header> -->
-
 <ion-content>
-
-  <div class="salution" color="positive"> Salam HoRMAT</div>
-  <!-- <ion-slides pager>
-    <ion-slide>
-      <ion-toolbar>
-        <ion-buttons end>
-          <button ion-button color="primary" (click)="skip()">Skip</button>
-        </ion-buttons>
-      </ion-toolbar>
-      <img src="assets/img/logo_subsidiary.png">
-    </ion-slide>
-    <ion-slide *ngFor="let slide of slides">
-      <ion-toolbar>
-        <ion-buttons end>
-          <button ion-button color="primary" (click)="skip()">Skip</button>
-        </ion-buttons>
-      </ion-toolbar>
-      <p [innerHTML]="slide.Node.body"></p>
-    </ion-slide>
-  </ion-slides> -->
-
+  <div>
+    <ion-row>
+      <ion-col text-center>
+        <img src="assets/img/logo_subsidiary.png">
+        <!-- <img src="assets/img/rapidrail_white.png"> -->
+      </ion-col>
+    </ion-row>
+    <div class="ferry-dashboard">
+      <ion-row class="transbox-header">
+        <ion-col width-50 text-center>
+          Terminal
+        </ion-col>
+        <ion-col width-50 text-center>
+          Departure
+        </ion-col>
+      </ion-row>
+      <ion-row class="transbox" *ngFor="let timetable of psah"  (click)="getDetail(timetable)">
+        <ion-col width-50 text-center>
+          PSAH <small>mainland</small><br/>
+          <small *ngIf="timetable.FerryRoute.isFull" style="color:red;">Full load</small>
+        </ion-col>
+        <ion-col width-50 text-center>
+          {{ timetable.FerryRoute.departure_a | date:'hh:mm a' }}<br/>
+          <small *ngIf="!timetable.FerryRoute.isOnTime" style="color:red;">Delayed</small>
+        </ion-col>
+      </ion-row>
+      <ion-row class="transbox" *ngFor="let timetable of prtu"  (click)="getDetail(timetable)">
+        <ion-col width-50 text-center>
+          PRTU <small>island</small><br/>
+          <small *ngIf="timetable.FerryRoute.isFull" style="color:red;">Full load</small>
+        </ion-col>
+        <ion-col width-50 text-center>
+          {{ timetable.FerryRoute.departure_b | date:'hh:mm a' }}<br/>
+          <small *ngIf="!timetable.FerryRoute.isOnTime" style="color:red;">Delayed</small>
+        </ion-col>
+      </ion-row>
+    </div>
+  </div>
 </ion-content>

@@ -57,10 +57,10 @@
       <ion-segment-button value="bus">
         Bus
       </ion-segment-button>
-      <ion-segment-button value="ets" *ngIf="location == 'PRTU'">
+      <ion-segment-button value="ets" >
         ETS
       </ion-segment-button>
-      <ion-segment-button value="ktm" *ngIf="location == 'PRTU'">
+      <ion-segment-button value="ktm" >
         KTM
       </ion-segment-button>
     </ion-segment>
@@ -84,17 +84,17 @@
         <ion-note item-start>Destination</ion-note>
         <ion-note item-end>Departure Time</ion-note>
       </ion-item>
-      <ion-item *ngFor="let timetable of etsTrips">
-        <h2> {{ timetable.Route.destination }} </h2>
-        <ion-note item-start> {{ timetable.Route.name }} </ion-note>
+      <ion-item *ngFor="let etstrip of etsTrips">
+        <h2> {{ etstrip.Route.destination }} </h2>
+        <ion-note item-start> {{ etstrip.Route.name }} </ion-note>
         <ion-note item-end>
-           {{ timetable.RouteTimetable.departure_a | date:'hh:mm a' }} 
+           {{ etstrip.RouteTimetable.departure_a | date:'hh:mm a' }} 
         </ion-note>
       </ion-item>
     </ion-list>
     <ion-list *ngSwitchCase="'ktm'">
-      <ion-item>
-        <ion-note>Coming soon...</ion-note>
+      <ion-item >
+        <ion-note>Not yet implemented.</ion-note>
       </ion-item>
     </ion-list>
   </div>

@@ -3,15 +3,17 @@ import { Ferrytrips } from './../../models/ferrytrips';
 import { DatePipe } from '@angular/common';
 import { DataApi } from './../../providers/data-api';
 import { Api } from './../../providers/api';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, LoadingController, AlertController, Platform } from 'ionic-angular';
+import { Observable } from 'rxjs/Rx';
+
 
 @Component({
   selector: 'page-home',
   templateUrl: 'home.html'
 })
 
-export class HomePage {
+export class HomePage implements OnInit {
   color_boarding: string = 'dark';
   color_departure: string = 'dark';
   timetables: any = new Array();
@@ -23,6 +25,7 @@ export class HomePage {
   submission_label: string;
   is_ontime: boolean;
   is_full: boolean;
+  public whatTime;
 
   constructor(
     public _loadingController: LoadingController,
@@ -34,7 +37,7 @@ export class HomePage {
     private datePipe: DatePipe
   ) { }
 
-  ionViewWillEnter(){
+  ionViewWillEnter() {
     this.getFerryTimetables();
   }
 
@@ -44,8 +47,10 @@ export class HomePage {
     setInterval(
       () => {
         this.getFerryTimetables();
-      }, 1000 * 60 // refresh to check new data for every 1 minute.
+      }, 1000 * 20 // refresh to check new data for every 1 minute.
     )
+    this.whatTime = Observable.interval(1000).map(x => new Date()).share();  // get current realtime
+
   }
 
   private getFerryTimetables() {
