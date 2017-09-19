@@ -1,17 +1,7 @@
-<ion-header class="ferry-header">
+<ion-header>
   <ion-navbar>
-    <ion-title>Service Schedules</ion-title>
+    <ion-title>Schedules</ion-title>
   </ion-navbar>
-
-  <ion-row>
-    <ion-col text-center class="time">
-      {{ whatTime | async | date: 'EEE dd-MM-yy' }}
-    </ion-col>
-    <ion-col text-center class="time">
-      {{ whatTime | async | date: 'hh:mm:ss a' }}
-    </ion-col>
-  </ion-row>
-
   <ion-toolbar>
     <ion-segment color="primary" [(ngModel)]="location">
       <ion-segment-button value="PRTU" (ionSelect)="setLocation($event)">

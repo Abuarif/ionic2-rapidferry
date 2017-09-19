@@ -1,12 +1,20 @@
+<ion-header>  
+  <ion-toolbar>
+  
+  <ion-row>
+    <ion-col text-center>
+      <!-- <img src="assets/img/logo_subsidiary.png"> -->
+      <img src="assets/img/rapid_ferry.png">
+    </ion-col>
+  </ion-row>
+  </ion-toolbar>
+</ion-header>
 <ion-content>
   <div>
-    <ion-row>
-      <ion-col text-center>
-        <img src="assets/img/logo_subsidiary.png">
-        <!-- <img src="assets/img/rapidrail_white.png"> -->
-      </ion-col>
-    </ion-row>
     <div class="ferry-dashboard">
+      <ion-row>
+        &nbsp;
+      </ion-row>
       <ion-row class="transbox-header">
         <ion-col width-50 text-center>
           Terminal
@@ -16,7 +24,7 @@
         </ion-col>
       </ion-row>
       <ion-row class="transbox" *ngFor="let timetable of psah"  (click)="getDetail(timetable)">
-        <ion-col width-50 text-center>
+        <ion-col width-50>
           PSAH <small>mainland</small><br/>
           <small *ngIf="timetable.FerryRoute.isFull" style="color:red;">Full load</small>
         </ion-col>
@@ -26,7 +34,7 @@
         </ion-col>
       </ion-row>
       <ion-row class="transbox" *ngFor="let timetable of prtu"  (click)="getDetail(timetable)">
-        <ion-col width-50 text-center>
+        <ion-col width-50>
           PRTU <small>island</small><br/>
           <small *ngIf="timetable.FerryRoute.isFull" style="color:red;">Full load</small>
         </ion-col>
