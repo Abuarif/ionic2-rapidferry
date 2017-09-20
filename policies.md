@@ -1,8 +1,7 @@
 # MOBILE PRIVACY POLICY
 ## PRIVACY POLICY MODEL FOR MOBILE APPLICATIONS
 This privacy policy governs your use of the software application RapidFerry Passenger (“Application”) for
-mobile devices that was created by Prasarana Malaysia Berhad. The Application is a game check
-point reader for ExploRail games.
+mobile devices that was created by Prasarana Malaysia Berhad. The Application enables public users to check on the current Rapid.
 
 
 What information does the Application obtain and how is it used?
