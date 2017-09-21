@@ -1,7 +1,9 @@
 page-information-page {
 
   ion-content {
-    background-image: url('/assets/img/ferry-bg.jpg');
+    background: url('assets/img/ferry-bg-slim.jpg');
+    // background-image: url('/assets/img/ferry-bg.jpg');
+    background-color: teal;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 60% 20%; 
@@ -15,7 +17,8 @@ page-information-page {
   }
 
   div.background {
-    background: url('/assets/img/ferry-bg.jpg');
+    // background: url('./assets/img/ferry-bg-slim.jpg');
+    background-color: teal;
     border: 2px solid black;
   }
 
@@ -33,5 +36,66 @@ page-information-page {
       border: 1px solid black;
       opacity: 0.9;
       filter: alpha(opacity=90); /* For IE8 and earlier */
+  }
+
+  .card-background-page {
+    
+    ion-card {
+      position: relative;
+      text-align: center;
+    }
+  
+    .card-title {
+      position: absolute;
+      top: 36%;
+      font-size: 2.0em;
+      width: 100%;
+      font-weight: bold;
+      color: #fff;
+    }
+  
+    .card-subtitle {
+      font-size: 1.0em;
+      position: absolute;
+      top: 52%;
+      width: 100%;
+      color: #fff;
+    }
+  }
+
+  .blink {
+      -webkit-animation-name: blinker;
+      -webkit-animation-duration: 1s;
+      -webkit-animation-timing-function: linear;
+      -webkit-animation-iteration-count: infinite;
+      
+      -moz-animation-name: blinker;
+      -moz-animation-duration: 1s;
+      -moz-animation-timing-function: linear;
+      -moz-animation-iteration-count: infinite;
+      
+      animation-name: blinker;
+      animation-duration: 1s;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+  }
+
+
+  @-moz-keyframes blinker {  
+      0% { opacity: 1.0; }
+      50% { opacity: 0.0; }
+      100% { opacity: 1.0; }
+  }
+
+  @-webkit-keyframes blinker {  
+      0% { opacity: 1.0; }
+      50% { opacity: 0.0; }
+      100% { opacity: 1.0; }
+  }
+
+  @keyframes blinker {  
+      0% { opacity: 1.0; }
+      50% { opacity: 0.0; }
+      100% { opacity: 1.0; }
   }
 }
