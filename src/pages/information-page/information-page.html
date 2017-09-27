@@ -14,64 +14,30 @@
 
     <img src="./assets/img/map.png">
 
-    <ion-item *ngFor="let timetable of psah" (click)="getDetail(timetable)">
+    <ion-item *ngFor="let timetable of prtu" (click)="getDetail(timetable)">
       <ion-icon name="pin" item-start large color="danger"></ion-icon>
-      <h2>Pengkalan Raja Tun Uda (PRTU)</h2>
+      <h2>Pangkalan Raja Tun Uda (PRTU)</h2>
       <p>George Town
         <small *ngIf="timetable.FerryRoute.isFull" class="blink" style="color:red;">Full load</small></p>
       <h2>Departure: {{ timetable.FerryRoute.departure_a | date:'hh:mm a' }} <small *ngIf="!timetable.FerryRoute.isOnTime" class="blink"
           style="color:red;">Delayed</small>
       </h2>
+      <ion-icon name="arrow-forward" item-end></ion-icon>
+
     </ion-item>
 
-    <ion-item *ngFor="let timetable of prtu" (click)="getDetail(timetable)">
+    <ion-item *ngFor="let timetable of psah" (click)="getDetail(timetable)">
       <ion-icon name="pin" item-left large color="primary"></ion-icon>
-      <h2>Pengkalan Sultan Abdul Halim (PSAH)</h2>
+      <h2>Pangkalan Sultan Abdul Halim (PSAH)</h2>
       <p>Butterworth
         <small *ngIf="timetable.FerryRoute.isFull" class="blink" style="color:red;">Full load</small></p>
       <h2>Departure: {{ timetable.FerryRoute.departure_b | date:'hh:mm a' }} <small *ngIf="!timetable.FerryRoute.isOnTime" class="blink"
           style="color:red;">Delayed</small>
       </h2>
+      <ion-icon name="arrow-forward" item-end></ion-icon>
+
     </ion-item>
-
     <img src="./assets/img/logo_subsidiary-200.jpg">
-
   </ion-card>
-
-  <!-- <div>
-    <div class="ferry-dashboard">
-      <ion-row>
-        &nbsp;
-      </ion-row>
-      <ion-row class="transbox-header">
-        <ion-col width-50 text-center>
-          Terminal
-        </ion-col>
-        <ion-col width-50 text-center>
-          Departure
-        </ion-col>
-      </ion-row>
-      <ion-row class="transbox" *ngFor="let timetable of psah" (click)="getDetail(timetable)">
-        <ion-col width-50>
-          PSAH <small>mainland</small><br/>
-          <small *ngIf="timetable.FerryRoute.isFull" style="color:red;">Full load</small>
-        </ion-col>
-        <ion-col width-50 text-center>
-          {{ timetable.FerryRoute.departure_a | date:'hh:mm a' }}<br/>
-          <small *ngIf="!timetable.FerryRoute.isOnTime" style="color:red;">Delayed</small>
-        </ion-col>
-      </ion-row>
-      <ion-row class="transbox" *ngFor="let timetable of prtu" (click)="getDetail(timetable)">
-        <ion-col width-50>
-          PRTU <small>island</small><br/>
-          <small *ngIf="timetable.FerryRoute.isFull" style="color:red;">Full load</small>
-        </ion-col>
-        <ion-col width-50 text-center>
-          {{ timetable.FerryRoute.departure_b | date:'hh:mm a' }}<br/>
-          <small *ngIf="!timetable.FerryRoute.isOnTime" style="color:red;">Delayed</small>
-        </ion-col>
-      </ion-row>
-    </div>
-  </div> -->
 
 </ion-content>

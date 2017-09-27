@@ -11,10 +11,10 @@
   <ion-list>
     <ion-item-divider color="light" text-center>
       <h2 *ngIf="location_id == '1'">
-        <font>Pengkalan Sultan Abdul Halim (PSAH)</font>
+        <font>Pangkalan Sultan Abdul Halim (PSAH)</font>
       </h2>
       <h2 *ngIf="location_id == '2'">
-        <font>Pengkalan Raja Tun Uda (PRTU)</font>
+        <font>Pangkalan Raja Tun Uda (PRTU)</font>
       </h2>
       <p>{{ service_date | date:'dd, MMMM yyyy'}}</p>
     </ion-item-divider>
@@ -53,10 +53,10 @@
     </ion-item>
   </ion-list>
   <p text-center *ngIf="location_id == '2'">
-    Available services at Pengkalan Sultan Abdul Halim (PSAH)
+    Available services at Pangkalan Sultan Abdul Halim (PSAH)
   </p>
   <p text-center *ngIf="location_id == '1'">
-    Available service at Pengkalan Tun Raja Uda (PRTU)
+    Available service at Pangkalan Tun Raja Uda (PRTU)
   </p>
   <div padding *ngIf="location_id == '1'">
     <ion-segment [(ngModel)]="service">

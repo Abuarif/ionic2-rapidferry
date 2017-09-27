@@ -1,10 +1,11 @@
+import { ModalPage } from './../modal/modal';
 import { Trip } from './../trip/trip';
 import { Ferrytrips } from './../../models/ferrytrips';
 import { DatePipe } from '@angular/common';
 import { DataApi } from './../../providers/data-api';
 import { Api } from './../../providers/api';
 import { Component, OnInit } from '@angular/core';
-import { NavController, LoadingController, AlertController, Platform } from 'ionic-angular';
+import { NavController, LoadingController, AlertController, Platform, ModalController } from 'ionic-angular';
 import { Observable } from 'rxjs/Rx';
 
 
@@ -34,7 +35,8 @@ export class HomePage implements OnInit {
     private platform: Platform,
     private navCtrl: NavController,
     private dataApi: DataApi,
-    private datePipe: DatePipe
+    private datePipe: DatePipe,
+    public modalCtrl: ModalController
   ) { }
 
   ionViewWillEnter() {
@@ -107,6 +109,33 @@ export class HomePage implements OnInit {
     alert.present();
   }
 
+  get_info(state) {
+    let message = '';
+    if (state == 'departure') {
+      message = 'Estimated departure time from ' + this.location + ' terminal to the next terminal';      
+    } else if (state == 'arrival'){
+      message = 'Estimated arrival time to the next terminal from ' + this.location + ' terminal';            
+    } 
+
+    let alert = this.alertCtrl.create({
+      title: 'Information!',
+      message: message,
+      buttons: [
+        {
+          text: 'Close',
+          handler: () => {
+          }
+        }
+      ]
+    });
+    alert.present();
+  }
+
+  get_ferrystatus() {
+    let modal = this.modalCtrl.create(ModalPage);
+    modal.present();
+  }
+  
   private exitApp() {
     this.platform.exitApp();
   }
@@ -165,4 +194,5 @@ export class HomePage implements OnInit {
     this.location = location.value;
     this.getFerryTimetables();
   }
+
 }

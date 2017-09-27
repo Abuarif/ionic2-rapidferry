@@ -1,3 +1,4 @@
+import { ModalPage } from './../pages/modal/modal';
 import { PricingPage } from './../pages/pricing/pricing';
 import { Trip } from './../pages/trip/trip';
 import { DataApi } from './../providers/data-api';
@@ -27,6 +28,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     General,
     Trip,
     PricingPage,
+    ModalPage,
     TabsPage
   ],
   imports: [
@@ -43,6 +45,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     Trip,
     PricingPage,
     General,
+    ModalPage,
     TabsPage
   ],
   providers: [
