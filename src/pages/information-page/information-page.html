@@ -16,7 +16,7 @@
 
     <ion-item *ngFor="let timetable of prtu" (click)="getDetail(timetable)">
       <ion-icon name="pin" item-start large color="danger"></ion-icon>
-      <h2>Pangkalan Raja Tun Uda (PRTU)</h2>
+      <h2>Island</h2>
       <p>George Town
         <small *ngIf="timetable.FerryRoute.isFull" class="blink" style="color:red;">Full load</small></p>
       <h2>Departure: {{ timetable.FerryRoute.departure_a | date:'hh:mm a' }} <small *ngIf="!timetable.FerryRoute.isOnTime" class="blink"
@@ -28,7 +28,7 @@
 
     <ion-item *ngFor="let timetable of psah" (click)="getDetail(timetable)">
       <ion-icon name="pin" item-left large color="primary"></ion-icon>
-      <h2>Pangkalan Sultan Abdul Halim (PSAH)</h2>
+      <h2>Mainland</h2>
       <p>Butterworth
         <small *ngIf="timetable.FerryRoute.isFull" class="blink" style="color:red;">Full load</small></p>
       <h2>Departure: {{ timetable.FerryRoute.departure_b | date:'hh:mm a' }} <small *ngIf="!timetable.FerryRoute.isOnTime" class="blink"
