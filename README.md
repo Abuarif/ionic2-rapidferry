@@ -3,7 +3,7 @@
 ## Install
 
 ```bash
-$ npm install
+ $ npm install
 $ ionic serve
 ```
 
