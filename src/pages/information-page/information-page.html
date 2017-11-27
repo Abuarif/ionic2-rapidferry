@@ -19,7 +19,7 @@
       <h2>Island</h2>
       <p>George Town
         <small *ngIf="timetable.FerryRoute.isFull" class="blink" style="color:red;">Full load</small></p>
-      <h2>Departure: {{ timetable.FerryRoute.departure_a | date:'hh:mm a' }} <small *ngIf="!timetable.FerryRoute.isOnTime" class="blink"
+      <h2>Departure: {{ timetable.FerryRoute.departure_b | date:'hh:mm a' }} <small *ngIf="!timetable.FerryRoute.isOnTime" class="blink"
           style="color:red;">Delayed</small>
       </h2>
       <ion-icon name="arrow-forward" item-end></ion-icon>
@@ -31,7 +31,7 @@
       <h2>Mainland</h2>
       <p>Butterworth
         <small *ngIf="timetable.FerryRoute.isFull" class="blink" style="color:red;">Full load</small></p>
-      <h2>Departure: {{ timetable.FerryRoute.departure_b | date:'hh:mm a' }} <small *ngIf="!timetable.FerryRoute.isOnTime" class="blink"
+      <h2>Departure: {{ timetable.FerryRoute.departure_a | date:'hh:mm a' }} <small *ngIf="!timetable.FerryRoute.isOnTime" class="blink"
           style="color:red;">Delayed</small>
       </h2>
       <ion-icon name="arrow-forward" item-end></ion-icon>

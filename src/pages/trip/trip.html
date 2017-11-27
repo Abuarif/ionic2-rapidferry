@@ -45,10 +45,10 @@
       <ion-icon name='timer' item-start color=secondary></ion-icon>
       Arrival Time
       <ion-note item-end *ngIf="location_id == '1'">
-        {{ timetable.FerryRoute.boarding_a | date:'hh:mm a'}}
+        {{ timetable.FerryRoute.boarding_b | date:'hh:mm a'}}
       </ion-note>
       <ion-note item-end *ngIf="location_id == '2'">
-        {{ timetable.FerryRoute.boarding_b | date:'hh:mm a'}}
+        {{ timetable.FerryRoute.boarding_a | date:'hh:mm a'}}
       </ion-note>
     </ion-item>
   </ion-list>
